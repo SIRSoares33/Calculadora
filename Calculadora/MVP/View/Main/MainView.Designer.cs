@@ -29,12 +29,15 @@ partial class MainView
     private void InitializeComponent()
     {
         pnlInput = new Panel();
-        txtInput = new TextBox();
+        txtResult = new TextBox();
         pnlButtons = new Panel();
-        button13 = new Button();
-        button12 = new Button();
-        button11 = new Button();
-        button10 = new Button();
+        btnClear = new Button();
+        btnExit = new Button();
+        btnResult = new Button();
+        btnDivision = new Button();
+        btnMultiplicacao = new Button();
+        btnLess = new Button();
+        btnPlus = new Button();
         button9 = new Button();
         button8 = new Button();
         button4 = new Button();
@@ -44,6 +47,7 @@ partial class MainView
         button3 = new Button();
         button2 = new Button();
         button1 = new Button();
+        button0 = new Button();
         pnlInput.SuspendLayout();
         pnlButtons.SuspendLayout();
         SuspendLayout();
@@ -51,30 +55,32 @@ partial class MainView
         // pnlInput
         // 
         pnlInput.BackColor = SystemColors.ActiveCaption;
-        pnlInput.Controls.Add(txtInput);
+        pnlInput.Controls.Add(txtResult);
         pnlInput.Location = new Point(0, 23);
         pnlInput.Name = "pnlInput";
         pnlInput.Size = new Size(324, 72);
         pnlInput.TabIndex = 0;
         // 
-        // txtInput
+        // txtResult
         // 
-        txtInput.BackColor = SystemColors.ActiveCaption;
-        txtInput.BorderStyle = BorderStyle.None;
-        txtInput.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
-        txtInput.Location = new Point(-22, 18);
-        txtInput.Name = "txtInput";
-        txtInput.ReadOnly = true;
-        txtInput.Size = new Size(324, 39);
-        txtInput.TabIndex = 0;
-        txtInput.TextAlign = HorizontalAlignment.Right;
+        txtResult.BackColor = SystemColors.ActiveCaption;
+        txtResult.BorderStyle = BorderStyle.None;
+        txtResult.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+        txtResult.Location = new Point(0, 19);
+        txtResult.Name = "txtResult";
+        txtResult.ReadOnly = true;
+        txtResult.Size = new Size(302, 43);
+        txtResult.TabIndex = 0;
         // 
         // pnlButtons
         // 
-        pnlButtons.Controls.Add(button13);
-        pnlButtons.Controls.Add(button12);
-        pnlButtons.Controls.Add(button11);
-        pnlButtons.Controls.Add(button10);
+        pnlButtons.Controls.Add(btnClear);
+        pnlButtons.Controls.Add(btnExit);
+        pnlButtons.Controls.Add(btnResult);
+        pnlButtons.Controls.Add(btnDivision);
+        pnlButtons.Controls.Add(btnMultiplicacao);
+        pnlButtons.Controls.Add(btnLess);
+        pnlButtons.Controls.Add(btnPlus);
         pnlButtons.Controls.Add(button9);
         pnlButtons.Controls.Add(button8);
         pnlButtons.Controls.Add(button4);
@@ -86,48 +92,85 @@ partial class MainView
         pnlButtons.Controls.Add(button1);
         pnlButtons.Location = new Point(0, 109);
         pnlButtons.Name = "pnlButtons";
-        pnlButtons.Size = new Size(324, 368);
+        pnlButtons.Size = new Size(324, 253);
         pnlButtons.TabIndex = 1;
         // 
-        // button13
+        // btnClear
         // 
-        button13.Font = new Font("Showcard Gothic", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
-        button13.Location = new Point(0, 184);
-        button13.Name = "button13";
-        button13.Size = new Size(77, 69);
-        button13.TabIndex = 13;
-        button13.Text = "/";
-        button13.UseVisualStyleBackColor = true;
+        btnClear.Font = new Font("Showcard Gothic", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+        btnClear.Location = new Point(225, 184);
+        btnClear.Name = "btnClear";
+        btnClear.Size = new Size(77, 69);
+        btnClear.TabIndex = 16;
+        btnClear.Text = "C";
+        btnClear.UseVisualStyleBackColor = true;
+        btnClear.Click += ClickedButtonClear;
         // 
-        // button12
+        // btnExit
         // 
-        button12.Font = new Font("Showcard Gothic", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
-        button12.Location = new Point(225, 120);
-        button12.Name = "button12";
-        button12.Size = new Size(77, 69);
-        button12.TabIndex = 12;
-        button12.Text = "*";
-        button12.UseVisualStyleBackColor = true;
+        btnExit.Font = new Font("Showcard Gothic", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+        btnExit.Location = new Point(149, 184);
+        btnExit.Name = "btnExit";
+        btnExit.Size = new Size(77, 69);
+        btnExit.TabIndex = 15;
+        btnExit.Text = "exit";
+        btnExit.UseVisualStyleBackColor = true;
+        btnExit.Click += exit;
         // 
-        // button11
+        // btnResult
         // 
-        button11.Font = new Font("Showcard Gothic", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
-        button11.Location = new Point(149, 120);
-        button11.Name = "button11";
-        button11.Size = new Size(77, 69);
-        button11.TabIndex = 11;
-        button11.Text = "-";
-        button11.UseVisualStyleBackColor = true;
+        btnResult.Font = new Font("Showcard Gothic", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+        btnResult.Location = new Point(76, 184);
+        btnResult.Name = "btnResult";
+        btnResult.Size = new Size(77, 69);
+        btnResult.TabIndex = 14;
+        btnResult.Text = "=";
+        btnResult.UseVisualStyleBackColor = true;
+        btnResult.Click += ClickedButtonResult;
         // 
-        // button10
+        // btnDivision
         // 
-        button10.Font = new Font("Showcard Gothic", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
-        button10.Location = new Point(76, 120);
-        button10.Name = "button10";
-        button10.Size = new Size(77, 69);
-        button10.TabIndex = 10;
-        button10.Text = "+";
-        button10.UseVisualStyleBackColor = true;
+        btnDivision.Font = new Font("Showcard Gothic", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+        btnDivision.Location = new Point(0, 184);
+        btnDivision.Name = "btnDivision";
+        btnDivision.Size = new Size(77, 69);
+        btnDivision.TabIndex = 13;
+        btnDivision.Text = "/";
+        btnDivision.UseVisualStyleBackColor = true;
+        btnDivision.Click += clickedButtonsOperation;
+        // 
+        // btnMultiplicacao
+        // 
+        btnMultiplicacao.Font = new Font("Showcard Gothic", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+        btnMultiplicacao.Location = new Point(225, 120);
+        btnMultiplicacao.Name = "btnMultiplicacao";
+        btnMultiplicacao.Size = new Size(77, 69);
+        btnMultiplicacao.TabIndex = 12;
+        btnMultiplicacao.Text = "*";
+        btnMultiplicacao.UseVisualStyleBackColor = true;
+        btnMultiplicacao.Click += clickedButtonsOperation;
+        // 
+        // btnLess
+        // 
+        btnLess.Font = new Font("Showcard Gothic", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+        btnLess.Location = new Point(149, 120);
+        btnLess.Name = "btnLess";
+        btnLess.Size = new Size(77, 69);
+        btnLess.TabIndex = 11;
+        btnLess.Text = "-";
+        btnLess.UseVisualStyleBackColor = true;
+        btnLess.Click += clickedButtonsOperation;
+        // 
+        // btnPlus
+        // 
+        btnPlus.Font = new Font("Showcard Gothic", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+        btnPlus.Location = new Point(76, 120);
+        btnPlus.Name = "btnPlus";
+        btnPlus.Size = new Size(77, 69);
+        btnPlus.TabIndex = 10;
+        btnPlus.Text = "+";
+        btnPlus.UseVisualStyleBackColor = true;
+        btnPlus.Click += clickedButtonsOperation;
         // 
         // button9
         // 
@@ -138,6 +181,7 @@ partial class MainView
         button9.TabIndex = 9;
         button9.Text = "9";
         button9.UseVisualStyleBackColor = true;
+        button9.Click += clickedButtonsNumber;
         // 
         // button8
         // 
@@ -148,6 +192,7 @@ partial class MainView
         button8.TabIndex = 8;
         button8.Text = "8";
         button8.UseVisualStyleBackColor = true;
+        button8.Click += clickedButtonsNumber;
         // 
         // button4
         // 
@@ -158,6 +203,7 @@ partial class MainView
         button4.TabIndex = 7;
         button4.Text = "4";
         button4.UseVisualStyleBackColor = true;
+        button4.Click += clickedButtonsNumber;
         // 
         // button7
         // 
@@ -168,6 +214,7 @@ partial class MainView
         button7.TabIndex = 6;
         button7.Text = "7";
         button7.UseVisualStyleBackColor = true;
+        button7.Click += clickedButtonsNumber;
         // 
         // button6
         // 
@@ -178,6 +225,7 @@ partial class MainView
         button6.TabIndex = 5;
         button6.Text = "6";
         button6.UseVisualStyleBackColor = true;
+        button6.Click += clickedButtonsNumber;
         // 
         // button5
         // 
@@ -188,6 +236,7 @@ partial class MainView
         button5.TabIndex = 4;
         button5.Text = "5";
         button5.UseVisualStyleBackColor = true;
+        button5.Click += clickedButtonsNumber;
         // 
         // button3
         // 
@@ -196,8 +245,10 @@ partial class MainView
         button3.Name = "button3";
         button3.Size = new Size(77, 69);
         button3.TabIndex = 2;
+        button3.Tag = "3";
         button3.Text = "3";
         button3.UseVisualStyleBackColor = true;
+        button3.Click += clickedButtonsNumber;
         // 
         // button2
         // 
@@ -208,6 +259,7 @@ partial class MainView
         button2.TabIndex = 1;
         button2.Text = "2";
         button2.UseVisualStyleBackColor = true;
+        button2.Click += clickedButtonsNumber;
         // 
         // button1
         // 
@@ -218,13 +270,26 @@ partial class MainView
         button1.TabIndex = 0;
         button1.Text = "1";
         button1.UseVisualStyleBackColor = true;
+        button1.Click += clickedButtonsNumber;
+        // 
+        // button0
+        // 
+        button0.Font = new Font("Showcard Gothic", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+        button0.Location = new Point(0, 354);
+        button0.Name = "button0";
+        button0.Size = new Size(77, 69);
+        button0.TabIndex = 14;
+        button0.Text = "0";
+        button0.UseVisualStyleBackColor = true;
+        button0.Click += clickedButtonsNumber;
         // 
         // MainView
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = SystemColors.ButtonShadow;
-        ClientSize = new Size(302, 360);
+        ClientSize = new Size(300, 423);
+        Controls.Add(button0);
         Controls.Add(pnlButtons);
         Controls.Add(pnlInput);
         FormBorderStyle = FormBorderStyle.None;
@@ -239,19 +304,23 @@ partial class MainView
     #endregion
 
     private Panel pnlInput;
-    private TextBox txtInput;
     private Panel pnlButtons;
     private Button button1;
     private Button button3;
     private Button button2;
-    private Button button13;
-    private Button button12;
-    private Button button11;
-    private Button button10;
+    private Button btnDivision;
+    private Button btnMultiplicacao;
+    private Button btnLess;
+    private Button btnPlus;
     private Button button9;
     private Button button8;
     private Button button4;
     private Button button7;
     private Button button6;
     private Button button5;
+    private TextBox txtResult;
+    private Button btnResult;
+    private Button btnExit;
+    private Button btnClear;
+    private Button button0;
 }
