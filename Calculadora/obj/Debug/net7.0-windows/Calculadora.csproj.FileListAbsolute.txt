@@ -12,3 +12,5 @@ C:\Users\Gustavo Soares\Desktop\Calculadora\Calculadora\obj\Debug\net7.0-windows
 C:\Users\Gustavo Soares\Desktop\Calculadora\Calculadora\obj\Debug\net7.0-windows\Calculadora.pdb
 C:\Users\Gustavo Soares\Desktop\Calculadora\Calculadora\obj\Debug\net7.0-windows\Calculadora.genruntimeconfig.cache
 C:\Users\Gustavo Soares\Desktop\Calculadora\Calculadora\obj\Debug\net7.0-windows\ref\Calculadora.dll
+C:\Users\Gustavo Soares\Desktop\Calculadora\Calculadora\obj\Debug\net7.0-windows\Calculadora.MainView.resources
+C:\Users\Gustavo Soares\Desktop\Calculadora\Calculadora\obj\Debug\net7.0-windows\Calculadora.csproj.GenerateResource.cache
